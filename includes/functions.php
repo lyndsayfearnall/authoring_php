@@ -1,4 +1,5 @@
 <?
+// do the connection first, then write a query
 $user = "root";
 $pass = "root";
 $host = "localhost";
@@ -7,19 +8,20 @@ $db = "a3_cooperInfo";
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
-  echo 'connected, yo!';
   echo 'sumpin done gone wrong, son';
   exit;
 }
 
+echo 'connected, yo!';
 // 1. do a select for all of the car data
-$myQuery = "SELECT * FROM mainmodel";
-$result = mysqli_query($conn, $myQuery);
-$rows = array();
-
-while ($row = mysqli_fetch_assoc($result)) {
-  $rows[] = $row;
-};
+//
+// $myQuery = "SELECT * FROM mainmodel";
+// $result = mysqli_query($conn, $myQuery);
+// $rows = array();
+//
+// while ($row = mysqli_fetch_assoc($result)) {
+//   $rows[] = $row;
+// };
 
 // echo back just the result set first
 //var_dump($rows);
