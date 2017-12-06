@@ -3,7 +3,7 @@
 $user = "root";
 $pass = "root";
 $host = "localhost";
-$db = "a3_cooperInfo";
+$db = "db_ajaxExample";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 

@@ -11,7 +11,7 @@
     //fetch API uses the Promise API (new for es6)
     fetch(url)
       .then((resp) => resp.json())
-      .then(({ modelName, pricing, modelDetails, model })) => {
+      .then(({ modelName, pricing, modelDetails, model }) => {
       // this is statement chaining - we can select an element and change its content all at once, instead of doing it in multiple steps
       let model = document.querySelector('.modelName').textContent = modelName;
       let price = document.querySelector('.priceInfo').innerHTML = pricing;
@@ -23,8 +23,7 @@
       });
 
       document.querySelector(`#${data.model}`).classList.remove('nonActive');
-      }
-    }
+    })
     .catch(function(error) {
       console.log(error);
     });
