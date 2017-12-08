@@ -12,9 +12,9 @@
     fetch(url)
       .then((resp) => resp.json()) //turns response into JSON file
       .then((data) => { processResult(data); })
-      .catch(function(error)) {
+      .catch(function(error) {
         console.log(error);
-      }
+      });
     //   // this is statement chaining - we can select an element and change its content all at once, instead of doing it in multiple steps
     //   let model = document.querySelector('.modelName').textContent = modelName;
     //   let price = document.querySelector('.priceInfo').innerHTML = pricing;
@@ -56,8 +56,8 @@
   // }
   //
   // // loop through and add event handling to each car thumbnail on the page. on a click, they'll fire the AJAX call at the top of the script file.
-  // carButtons.forEach(function(car, index) {
-  //   car.addEventListener('click', getCarData, false);
-  // });
+  carButtons.forEach(function(car, index) {
+    car.addEventListener('click', getCarData, false);
+  });
 
 })();

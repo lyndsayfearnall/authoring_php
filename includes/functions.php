@@ -1,9 +1,9 @@
 <?
 // do the connection first, then write a query
 $user = "root";
-$pass = "root";
+$pass = "";
 $host = "localhost";
-$db = "db_ajaxExample";
+$db = "db_ajaxexample";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 
