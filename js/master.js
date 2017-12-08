@@ -10,23 +10,26 @@
 
     //fetch API uses the Promise API (new for es6)
     fetch(url)
-      .then((resp) => resp.json())
-      .then(({ modelName, pricing, modelDetails, model }) => {
-      // this is statement chaining - we can select an element and change its content all at once, instead of doing it in multiple steps
-      let model = document.querySelector('.modelName').textContent = modelName;
-      let price = document.querySelector('.priceInfo').innerHTML = pricing;
-      let desc = document.querySelector('.modelDetails').textContent = modelDetails;
-
-      // loop through all the car thumbnails again and add a nonActive class to them to fade them out. a forEach function uses the collection we set up in our variable declaration at the top on line 5, and passes each element in one at a time (that's what the car in the round brackets is). It also tracks what iteration of the loop it's on with the index variable (0, 1, 2 etc), which we're not using in the function.
-      carButtons.forEach(function(car, index) {
-        car.classList.add('nonActive');
-      });
-
-      document.querySelector(`#${data.model}`).classList.remove('nonActive');
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
+      .then((resp) => resp.json()) //turns response into JSON file
+      .then((data) => { processResult(data); })
+      .catch(function(error)) {
+        console.log(error);
+      }
+    //   // this is statement chaining - we can select an element and change its content all at once, instead of doing it in multiple steps
+    //   let model = document.querySelector('.modelName').textContent = modelName;
+    //   let price = document.querySelector('.priceInfo').innerHTML = pricing;
+    //   let desc = document.querySelector('.modelDetails').textContent = modelDetails;
+    //
+    //   // loop through all the car thumbnails again and add a nonActive class to them to fade them out. a forEach function uses the collection we set up in our variable declaration at the top on line 5, and passes each element in one at a time (that's what the car in the round brackets is). It also tracks what iteration of the loop it's on with the index variable (0, 1, 2 etc), which we're not using in the function.
+    //   carButtons.forEach(function(car, index) {
+    //     car.classList.add('nonActive');
+    //   });
+    //
+    //   document.querySelector(`#${data.model}`).classList.remove('nonActive');
+    // })
+    // .catch(function(error) {
+    //   console.log(error);
+    // });
   }
 
   // processResult is run when the AJAX call is complete and we have the data back. It gets called on line 36, and the data variable gets passed in from that function (it's the JavaScript object we got from the database)
