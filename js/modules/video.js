@@ -6,7 +6,9 @@ var video = {
 
   //functionality comes next
   volOn(){
+    //target video.video to access the video itself and then its properties
     video.videoPlayer.muted = false;
+    //JS replace() replaces #1 with #1 https://www.w3schools.com/jsref/jsref_replace.asp
     video.volumeIndicator.classList.replace('fa-volume-off', 'fa-volume-up');
   },
   //make sure to separate funcitons with a comma
@@ -32,6 +34,7 @@ var video = {
     overlay.classList.remove('show-overlay');
   },
 
+  //functionality
   init() {
     console.log('added a video module');
     video.videoPlayer.addEventListener('mouseover', video.volOn);
