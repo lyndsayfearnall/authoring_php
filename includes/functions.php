@@ -12,7 +12,7 @@ if (!$conn) {
   exit;
 }
 
-echo 'connected, yo!';
+//echo 'connected, yo!';
 // 1. do a select for all of the car data
 //
 // $myQuery = "SELECT * FROM mainmodel";
@@ -48,5 +48,22 @@ if (isset($_GET["carModel"])) { // check to see if a query parameter exists
   //var_dump($row);
   // and then encode it for the javascript AJAX call
   echo json_encode($row);
+}
+
+if (isset($_GET["getVideos"])) { // check to see if a query parameter exists
+  // pass in the car variable using the location bar in the browser (?carModel=F56)
+  $myQuery = "SELECT * FROM video";
+  // send the query
+  $result = mysqli_query($conn, $myQuery);
+  // get the result
+  $rows = array();
+
+  while($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+  // echo it back to whatever called it (the browser, to start)
+  //var_dump($row);
+  // and then encode it for the javascript AJAX call
+  echo json_encode($rows);
 };
 ?>
